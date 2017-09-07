@@ -1,32 +1,40 @@
-describe('Roman', function () {
-    it('should convert 10 to X', function () {
-      expect(convertToRoman(10)).toBe('X');
-    });
+describe('Roman numeral converter', () => {
+  it('Converts integers to roman numerals', () => {
 
-     it('should convert 1 to I', function () {
-      expect(convertToRoman(1)).toBe('I');
-    });
+    expect(romanNumerals(1)).toEqual('I');
+    expect(romanNumerals(4)).toEqual('IV');
+    expect(romanNumerals(5)).toEqual('V');
+    expect(romanNumerals(9)).toEqual('IX');
+    expect(romanNumerals(10)).toEqual('X');
+    expect(romanNumerals(40)).toEqual('XL');
+    expect(romanNumerals(50)).toEqual('L');
+    expect(romanNumerals(90)).toEqual('XC');
+    expect(romanNumerals(100)).toEqual('C');
+    expect(romanNumerals(400)).toEqual('CD');
+    expect(romanNumerals(500)).toEqual('D');
+    expect(romanNumerals(900)).toEqual('CM');
+    expect(romanNumerals(1000)).toEqual('M');
+    expect(romanNumerals(1977)).toEqual('MCMLXXVII');
+  })
+})
 
-     it('should convert 1977 to MCMLXXVII', function () {
-      expect(convertToRoman(1977)).toBe('MCMLXXVII');
-    });
-});
+describe('Integer converter', () => {
+  it('Converts roman numerals to integers', () => {
 
-
-describe('Integer', function () {
-    it('should start with 0 when there is no entry', function () {
-      expect(convertToInteger('')).toBe(0);
-    });
-
-    it('should convert X to 10', function () {
-      expect(convertToInteger('X')).toBe(10);
-    });
-
-     it('should convert I to 1', function () {
-      expect(convertToInteger('I')).toBe(1);
-    });
-
-     it('should convert MCMLXXVII to 1977', function () {
-      expect(convertToInteger('MCMLXXVII')).toBe(1977);
-    });
-});
+    expect(integer('I')).toEqual(1);
+    expect(integer('II')).toEqual(2);
+    expect(integer('IV')).toEqual(4);
+    expect(integer('V')).toEqual(5);
+    expect(integer('IX')).toEqual(9);
+    expect(integer('X')).toEqual(10);
+    expect(integer('XL')).toEqual(40);
+    expect(integer('L')).toEqual(50);
+    expect(integer('XC')).toEqual(90);
+    expect(integer('C')).toEqual(100);
+    expect(integer('CD')).toEqual(400);
+    expect(integer('D')).toEqual(500);
+    expect(integer('CM')).toEqual(900);
+    expect(integer('M')).toEqual(1000);
+    expect(integer('MMCDLXXXIII')).toEqual(2483);
+  })
+})
